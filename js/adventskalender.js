@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formattedDate = `${adventDate.getDate()}. ${monthNames[adventDate.getMonth()]} ${adventDate.getFullYear()}`;
   
     // Zeige Bilder für vergangene Tage sofort an
-    if (dayInfo && currentMonth === 10 && dayNumber < currentDate) {
+    if (dayInfo && currentMonth === 11 && dayNumber < currentDate) {
       day.classList.add('opened');
       if (showImagesForPastDoors) {
         day.style.backgroundImage = `url('${basePath}${dayInfo.image}')`;
@@ -74,15 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Event-Handler für das Klicken auf ein Türchen hinzufügen
     day.addEventListener('click', function () {
-      if (currentMonth === 10 && dayNumber === currentDate) {
+      if (currentMonth === 11 && dayNumber === currentDate) {
         // Zeige das Bild für das aktuelle Türchen an und öffne das Modal
         day.classList.add('current');
         day.style.backgroundImage = `url('${basePath}${dayInfo.image}')`;
         showModal(dayNumber, formattedDate, dayInfo);
-      } else if (currentMonth === 10 && dayNumber < currentDate && showModalForPastDoors) {
+      } else if (currentMonth === 11 && dayNumber < currentDate && showModalForPastDoors) {
         // Zeige das Modal für vergangene Türchen, wenn showModalForPastDoors true ist
         showModal(dayNumber, formattedDate, dayInfo);
-      } else if (currentMonth === 10 || dayNumber > currentDate) {
+      } else if (currentMonth === 11 && dayNumber > currentDate) {
         // Berechne die Anzahl der Tage bis zum Öffnen des Türchens
         const daysUntilOpen = dayNumber - currentDate;
         const notTimeModalBody = document.getElementById('notTimeModalBody');
