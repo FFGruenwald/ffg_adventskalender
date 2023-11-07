@@ -13,6 +13,10 @@ const backgroundImageUrlSmall = 'bilder/hintergrundbild_klein.jpg';
 // Label für den Modal-Link
 const labelPopupModelLink = "Weitere Informationen...";
 
+// Monatsnamen
+const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni",
+    "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
 // Warten, bis das Dokument vollständig geladen ist
 document.addEventListener('DOMContentLoaded', () => {
   // Basisverzeichnis für Bilder (leer, da Bilder in adventskalenderdaten.js vollständig referenziert sind)
@@ -32,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Modal für "Nicht zur richtigen Zeit" erstellen
   const notTimeModal = new bootstrap.Modal(document.getElementById('notTimeModal'));
-  
-  // Monatsnamen
-  const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni",
-    "Juli", "August", "September", "Oktober", "November", "Dezember"];
   
   // Adventskalender-Container auswählen
   const adventCalendar = document.querySelector('.advent-calendar');
@@ -74,7 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Event-Handler für das Klicken auf ein Türchen hinzufügen
     day.addEventListener('click', function () {
-      if (currentMonth === 11 && dayNumber === currentDate) {
+      const notTimeModalBody = document.getElementById('notTimeModalBody');
+      if (currentMonth <= 10){
+        notTimeModalBody.textContent = `Es ist noch nicht Dezember, daher kannst Du auch noch kein Türchen öffnen...`;
+        notTimeModal.show();
+      }else if(currentMonth === 11 && currentDate >=25) {
+        notTimeModalBody.textContent = `Heute ist bereits der ${currentDate}. ${monthNames[currentMonth]} , d.h. Weihnachten ist vorüber. Nächstes Jahr öffnet sich unser Kalender wieder! `;
+        notTimeModal.show();
+      }else if (currentMonth === 11 && dayNumber === currentDate) {
         // Zeige das Bild für das aktuelle Türchen an und öffne das Modal
         day.classList.add('current');
         day.style.backgroundImage = `url('${basePath}${dayInfo.image}')`;
@@ -85,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (currentMonth === 11 && dayNumber > currentDate) {
         // Berechne die Anzahl der Tage bis zum Öffnen des Türchens
         const daysUntilOpen = dayNumber - currentDate;
-        const notTimeModalBody = document.getElementById('notTimeModalBody');
         if (daysUntilOpen === 1) {
           notTimeModalBody.textContent = `Morgen ist es endlich soweit und du kannst dieses Türchen öffnen. Bis dahin musst Du aber noch warten...`;
         } else {
