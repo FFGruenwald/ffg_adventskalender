@@ -1,0 +1,157 @@
+.advent-calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columns by default */
+    grid-gap: 50px; /* space between items */
+    padding: 50px;
+    max-width: 70%; /* full width on smaller screens */
+    margin: auto; /* center calendar in the view */
+    background-size: cover; /* Sorgt dafür, dass das Bild den Container vollständig abdeckt */
+    background-position: center; /* Zentriert das Bild im Container */
+  
+  }
+  
+  .day {
+    background-color: transparent; /* Türchen durchsichtig */
+    border: 2px dashed black; /* Gestrichelter Rand */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    aspect-ratio: 1 / 1;
+    font-family: Tahoma, Arial, sans-serif; /* Schriftart Tahoma, dann Arial als Fallback */
+    font-weight: bold; /* Fett gedruckter Text */
+    color: white; /* Weiße Textfarbe */
+    font-size: 4vw; /* Schriftgröße relativ zur Breite des Viewports */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;  
+  }
+  
+  .disabled {
+    background-color: #808080; /* Grauer Hintergrund für vergangene Tage */
+    pointer-events: none; /* Deaktiviert Klick-Ereignisse für das Türchen */
+    cursor: default; /* Setzt den Cursor zurück auf den Standard */
+  }
+
+  .day:not(.open) {
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+
+.day.open {
+  width: 0; /* Animiert die Breite auf 0, um den "Vorhang"-Effekt zu erzielen */
+  border: none; /* Entfernt die Ränder */
+  transition: width 1s ease-in-out, background-image 0s 0s; /* Verzögert das Erscheinen des Bildes */
+}
+
+.day::before {
+  content: "";
+  background: var(--background-image) center/cover no-repeat;
+  opacity: 0.4; /* Bild mit 40% Deckkraft */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1; /* Damit der Text über dem Bild bleibt */
+}
+
+/* Stile für bereits geöffnete Türchen */
+.day.opened {
+  border: 2px dashed black; /* Der Rand bleibt gestrichelt */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6; /* Bild mit 40% Deckkraft */
+}
+
+.day:hover {
+  transform: scale(1.1); /* Vergrößert das Türchen beim Hover */
+  transition: transform 0.3s ease; /* Glatte Animation für die Transformation */
+}
+
+.day.transparent {
+  background: none;
+  color: rgba(0, 0, 0, 0.6); /* Annahme: Zahl ist schwarz */
+}
+
+/* Stile für das aktuelle Türchen */
+.day.current, .day.opened.current {
+  border: 2px solid #DA1F3D; /* Roter Rand für das aktuelle Türchen */
+  filter: none; /* Kein Schwarzweißfilter für das aktuelle Türchen */
+}
+
+@keyframes pageFlip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(-180deg); /* Dreht das Türchen um -180 Grad entlang der Y-Achse */
+    }
+  }
+
+  @keyframes openDoorAnimation {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+  }
+  
+  @keyframes closeDoorAnimation {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Closed state might be the initial state if you add 'closed' class to all doors initially. */
+  .closed {
+    animation: closeDoorAnimation 1s forwards;
+  }
+
+  /* Media queries based on Bootstrap 5 breakpoints */
+  
+  /* Extra small devices (portrait phones, less than 576px) */
+  @media (max-width: 575.98px) { 
+    .advent-calendar {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px; /* space between items */
+      padding: 20px;
+      max-width: 100%; /* full width on smaller screens */
+    }
+    .day {
+        font-size: 8vw; /* Schriftgröße relativ zur Breite des Viewports */
+    }
+  }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) { 
+    .advent-calendar {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px; /* space between items */
+      padding: 20px;
+      max-width: 100%; /* full width on smaller screens */
+    }
+    .day {
+        font-size: 8vw; /* Schriftgröße relativ zur Breite des Viewports */
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) { 
+    .advent-calendar {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 30px; /* space between items */
+      padding: 30px;
+      max-width: 100%; /* full width on smaller screens */
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) { 
+    /* No changes here, the default setting works fine */
+  
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {
+    /* No changes here, the default setting works fine */
+  }

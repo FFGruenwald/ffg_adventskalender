@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Advent Calendar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link rel="stylesheet" href="css/adventskalender.css">
+  <script src="js/adventsKalenderDaten.js"></script>
+</head>
+<body>
+  <div class="advent-calendar">
+    <!-- Türchen 1 bis 24 -->
+    <div class="day" id="day5">5</div>
+    <div class="day" id="day8">8</div>
+    <div class="day" id="day17">17</div>
+    <div class="day" id="day12">12</div>
+    <div class="day" id="day7">7</div>
+    <div class="day" id="day18">18</div>
+
+    <div class="day" id="day20">20</div>
+    <div class="day" id="day14">14</div>
+    <div class="day" id="day2">2</div>
+    <div class="day" id="day22">22</div>
+    <div class="day" id="day16">16</div>
+    <div class="day" id="day21">21</div>
+
+    <div class="day" id="day6">6</div>
+    <div class="day" id="day23">23</div>
+    <div class="day" id="day10">10</div>
+    <div class="day" id="day24">24</div>
+    <div class="day" id="day3">3</div>
+    <div class="day" id="day11">11</div>
+
+    <div class="day" id="day13">13</div>
+    <div class="day" id="day4">4</div>
+    <div class="day" id="day19">19</div>
+    <div class="day" id="day15">15</div>
+    <div class="day" id="day1">1</div>
+    <div class="day" id="day9">9</div>
+  </div>
+
+  <!-- Bootstrap 4.6 Modal -->
+  <div class="modal fade" id="notTimeModal" tabindex="-1" role="dialog" aria-labelledby="notTimeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notTimeModalLabel">Noch etwas Geduld</h5>
+          <!-- Bootstrap 4 verwendet noch data-dismiss statt data-bs-dismiss -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="notTimeModalBody">
+          <!-- Der Text wird per JavaScript gesetzt -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 4.6 Modal für das angeklickte Bild -->
+  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Adventsbild</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImage" src="" alt="Adventsbild" class="img-fluid">
+          <div id="modalText"><!-- Der Text wird per JavaScript gesetzt --></div>
+          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display:none;">Mehr erfahren...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap 4.6 JavaScript -->
+  <!-- Zuerst jQuery, dann Popper.js, dann Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha512-hCP3piYGSBPqnXypdKxKPSOzBHF75oU8wQ81a6OiGXHFMeKs9/8ChbgYl7pUvwImXJb03N4bs1o1DzmbokeeFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <script src="js/adventskalender.js"></script>
+</body>
+</html>
