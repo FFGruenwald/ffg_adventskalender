@@ -16,11 +16,9 @@ const labelPopupModelLink = "Weitere Informationen...";
 // Text in Überschrift im Popup wenn Tür noch nicht geöffnet werden kann
 const headerPopupNotTime = "Adventskalender";
 
-
 // Monatsnamen
 const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni",
     "Juli", "August", "September", "Oktober", "November", "Dezember"];
-
 
 let selectedMonth = new Date().getMonth();
 
@@ -39,8 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalLink = document.getElementById('modalLink');
   const modalTitle = document.getElementById('imageModalLabel');
   
-  // Modal für "Nicht zur richtigen Zeit" erstellen
-  const notTimeModal = new bootstrap.Modal(document.getElementById('notTimeModal'));
+  // Modal für "Nicht zur richtigen Zeit" erstellen - Bootstrap 5 Update
+  const notTimeModal = new bootstrap.Modal(document.getElementById('notTimeModal'), {
+    keyboard: true
+  });
   
   // Adventskalender-Container auswählen
   const adventCalendar = document.querySelector('.advent-calendar');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const notTimeModalBody = document.getElementById('notTimeModalBody');
       const notTimeModalLabel = document.getElementById('notTimeModalLabel');
       if (selectedMonth <= 10) {
-        //Anzeige beim Klick auf ein Türchen wenn der Monat noch nicht Dezember ist, HTML Tags möglich
+        // Anzeige beim Klick auf ein Türchen wenn der Monat noch nicht Dezember ist, HTML Tags möglich
         notTimeModalBody.innerHTML = `Heute ist der ${currentDate}. ${monthNames[selectedMonth]}! Die Türchen lassen sich erst ab dem 1. Dezember öffnen...`;
         notTimeModalLabel.textContent = headerPopupNotTime;
         notTimeModal.show();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // Funktion zum Anzeigen des Modals für ein Türchen
+  // Funktion zum Anzeigen des Modals für ein Türchen - Bootstrap 5 Update
   function showModal(dayNumber, currentDate, dayInfo) {
     modalTitle.textContent = `Adventskalender Türchen ${dayNumber}`;
     modalImage.src = `${basePath}${dayInfo.image}`;
@@ -116,11 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalLink.href = dayInfo.link;
     modalLink.target = '_blank';
     modalLink.style.display = dayInfo.link ? 'inline-block' : 'none';
-    //check configuration
     if(document.getElementById('showModalForPastDoors') && !document.getElementById('showModalForPastDoors').checked && currentDate != dayNumber) {
       return;
     }
-    const imageModal = new bootstrap.Modal(imageModalElement);
+    const imageModal = new bootstrap.Modal(imageModalElement, { keyboard: true });
     imageModal.show();
   }
   
@@ -139,5 +138,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event-Handler für das Laden der Seite und das Ändern der Bildschirmgröße
   window.addEventListener('DOMContentLoaded', setCalendarBackground);
   window.addEventListener('resize', setCalendarBackground);
-
 });
