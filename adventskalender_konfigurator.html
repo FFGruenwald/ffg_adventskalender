@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Feuerwehr Adventskalender</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/adventskalender.css">
     <script src="js/adventsKalenderDaten.js"></script>
 </head>
@@ -53,10 +53,11 @@
   <hr>
 </div>
 
+
     <div class="advent-calendar">
         <!--  Türchen 1 bis 24 - lassen sich beliebig anders anordnen!
-              Auf Desktopbildschirmen (>992 Pixel) werden pro Zeile 6 Türchen (= 4 Zeilen) dargestellt,
-              auf Mobiltelefonen hingegen nur 3 Türchen pro Zeile -->
+                  Auf Desktopbildschirmen (>992 Pixel) werden pro Zeile 6 Türchen (= 4 Zeilen) dargestellt,
+                  auf Mobiltelefonen hingegen nur 3 Türchen pro Zeile -->
         <div class="day" id="day5">5</div>
         <div class="day" id="day8">8</div>
         <div class="day" id="day17">17</div>
@@ -86,13 +87,16 @@
         <div class="day" id="day9">9</div>
     </div>
 
-    <!-- Aktualisiertes Bootstrap 5 Modal -->
-    <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" aria-hidden="true">
+    <!-- Bootstrap 4.6 Modal -->
+    <div class="modal fade" id="notTimeModal" tabindex="-1" role="dialog" aria-labelledby="notTimeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="notTimeModalLabel">Adventskalender</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <!-- Bootstrap 4 verwendet noch data-dismiss statt data-bs-dismiss -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body" id="notTimeModalBody">
                     <!-- Der Text wird per JavaScript gesetzt -->
@@ -101,13 +105,15 @@
         </div>
     </div>
 
-    <!-- Aktualisiertes Bootstrap 5 Modal für das angeklickte Bild -->
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <!-- Bootstrap 4.6 Modal für das angeklickte Bild -->
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageModalLabel">Adventsbild</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <img id="modalImage" src="" alt="Adventsbild" class="img-fluid">
@@ -118,66 +124,69 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5.3.2 JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap 4.6 JavaScript -->
+    <!-- Zuerst jQuery, dann Popper.js, dann Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha512-hCP3piYGSBPqnXypdKxKPSOzBHF75oU8wQ81a6OiGXHFMeKs9/8ChbgYl7pUvwImXJb03N4bs1o1DzmbokeeFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/adventskalender.js"></script>
     <script>
+        
         document.addEventListener('DOMContentLoaded', () => {
-            // Funktion zum Aktualisieren der Konfiguration
-            function updateConfiguration() {
-                showImagesForPastDoors = document.getElementById('showImagesForPastDoors').checked;
-                showModalForPastDoors = document.getElementById('showModalForPastDoors').checked;
-                if(document.getElementById('useDecemberAsCurrentMonth').checked) {
-                    selectedMonth = 11;
-                    document.getElementById('configurationActive').style.display='inline-block';
-                    const day =  parseInt(document.getElementById('selectedDay').value,10);
-                    currentDate = day;
-                    if (day >= 1 && day <= 25) {
-                        const dayElement = document.querySelector(`.day[id="day${day}"]`);
-                        if (dayElement) {
-                            const dayNumber = parseInt(day, 10);
-                            //Remove all "current" styles 
-                            var alldays = document.querySelectorAll('.day');
-                            for (let i = 0; i < alldays.length; i++){
-                                alldays[i].classList.remove('current');
-                            }
-                            //loop through all days until ${day} -1 and check if showImagesForPastDoors are set
-                            for (let i = 1; i < currentDate; i++){
-                                const elem = document.querySelector(`.day[id="day${i}"]`);
-                                const imgDay = dataObject[i];
-                                if(showImagesForPastDoors) {
-                                    elem.style.backgroundImage = `url('${imgDay.image}')`;
-                                    elem.classList.add('opened');
-                                } else {
-                                    //remove images again...
-                                    elem.style.backgroundImage = '';
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    //reset month to current
-                    selectedMonth = new Date().getMonth();
-                    //remove everything again
-                    document.getElementById('configurationActive').style.display='none';
-                    for (let i = 0; i <= 24; i++){
-                        var alldays = document.querySelectorAll('.day');
-                        alldays[i].classList.remove('current');
-                        alldays[i].classList.remove('opened');
-                        alldays[i].style.backgroundImage = '';
-                    }
-                }
+  // Funktion zum Aktualisieren der Konfiguration
+  // Diese Funktionalität wird nur für den "Tester" benötigt!
+  function updateConfiguration() {
+    showImagesForPastDoors = document.getElementById('showImagesForPastDoors').checked;
+    showModalForPastDoors = document.getElementById('showModalForPastDoors').checked;
+    if(document.getElementById('useDecemberAsCurrentMonth').checked) {
+      selectedMonth = 11;
+      document.getElementById('configurationActive').style.display='inline-block';
+      const day =  parseInt(document.getElementById('selectedDay').value,10);
+      currentDate =  day;
+      if (day >= 1 && day <= 25) {
+        const dayElement = document.querySelector(`.day[id="day${day}"]`);
+        if (dayElement) {
+          const dayNumber = parseInt(day, 10);
+          //Remove all "current" styles 
+          var alldays = document.querySelectorAll('.day');
+          for (i = 0; i < alldays.length; i++){
+            alldays[i].classList.remove('current');
+          }
+          //loop through all days until ${day} -1 and check if showImagesForPastDoors are set
+          for (i = 1; i < currentDate; i++){
+            const elem = document.querySelector(`.day[id="day${i}"]`);
+            const imgDay = dataObject[i];
+            if(showImagesForPastDoors) 
+            {
+              elem.style.backgroundImage = `url('${imgDay.image}')`;
+              elem.classList.add('opened');
+            } else {
+              //remove images again...
+              elem.style.backgroundImage = '';
             }
+          }
+        }
+      }
+    } else {
+      //reset month to current
+      selectedMonth = new Date().getMonth();
+      //remove everything again
+      document.getElementById('configurationActive').style.display='none';
+      for (i = 0; i <= 24; i++){
+        var alldays = document.querySelectorAll('.day');
+        alldays[i].classList.remove('current');
+        alldays[i].classList.remove('opened');
+        alldays[i].style.backgroundImage = '';
+      }
+    }
+
+  }
 
   // Event-Handler für das Konfigurieren
   document.getElementById('configureButton').addEventListener('click', updateConfiguration);
 
         });
     </script>
-  <!-- Bootstrap 5.3.2 JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>  <script src="js/adventskalender.js"></script>
 
 </body>
 </html>
