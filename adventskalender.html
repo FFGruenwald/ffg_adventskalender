@@ -44,36 +44,39 @@
   </div>
 
   <!-- Modal für nicht verfügbare Türchen -->
-  <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" aria-modal="true" role="dialog">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="notTimeModalLabel"></h5>
+          <h5 class="modal-title" id="notTimeModalLabel"><!-- Der Text wird per JavaScript gesetzt --></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
         </div>
-        <div class="modal-body" id="notTimeModalBody"></div>
+        <div class="modal-body" id="notTimeModalBody">
+          <!-- Der Text wird per JavaScript gesetzt -->
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Modal für angeklickte Türchen -->
-  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="imageModalLabel"></h5>
+          <h5 class="modal-title" id="imageModalLabel">Adventskalenderbild</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
         </div>
         <div class="modal-body">
           <div id="modalVideoContainer" style="display: none;"></div>
           <div id="modalImageContainer" style="display: none;"></div>
           <div id="modalText"></div>
-          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display: none;"></a>
+          <a id="modalLink" href="#" target="_blank" title="Link in neuem Fenster &ouml;ffnen" class="btn btn-primary mt-3" role="button" style="display: none;"><!--Wird vom JavaScript gesetzt--></a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Bootstrap JavaScript -->
   <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
   <script src="js/adventsKalenderDaten.js" defer></script>
   <script src="js/adventskalender.js" defer></script>

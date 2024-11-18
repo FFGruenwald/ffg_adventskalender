@@ -1,5 +1,5 @@
 // Simuliert einen bestimmten Tag im Dezember (nur für Testzwecke).
-let simulatedDayInDecember = 0;
+let simulatedDayInDecember = 24;
 
 // Steuert, ob das Popup für vergangene Türchen angezeigt werden soll.
 let showPopupForPastDoors = true;

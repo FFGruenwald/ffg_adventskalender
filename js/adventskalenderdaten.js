@@ -56,25 +56,25 @@ const dataObject = {
             "width": "100%",
             "height": 450
         },
-        "text": "Dieses Video zeigt eindrucksvoll wie schnell ein in Brand geratener Weichnachtsbaum einen Zimmerbrand auslöst. Es wird deutlich, dass nicht viel Zeit für Löschversuche bleibt.",
+        "text": "Dieses Video zeigt eindrucksvoll wie schnell ein in Brand geratener Weichnachtsbaum einen Zimmerbrand ausl&ouml;st. Es wird deutlich, dass nicht viel Zeit f&uuml;r L&ouml;schversuche bleibt.",
         "link": "",
         "linkText": ""
     },
     "8": { 
         "video": {
             "source": "mp4",
-            "url": "https://www.feuerwehr-gruenwald.de/media/filer_public/dd/ab/ddab1e19-55cd-4b66-a166-d20d16c6d7b2/2024-03-11_-_ffg_fahrzeugemfang_drohne_robert_dietzel.mp4",
+            "url": "https://www.feuerwehr-gruenwald.de/media/filer_public/a9/71/a9710a54-c03d-44d6-8996-ec6019b0422c/2024-03-11_-_ffg_ankunft_neuer_fahrzeuge_1080p.mp4",
             "controls": true,
             "loop": false,
             "width": "100%"
         },
-        "text": "MP4-Video Beispiel",
-        "link": "https://www.feuerwehr-gruenwald.de/media/filer_public/dd/ab/ddab1e19-55cd-4b66-a166-d20d16c6d7b2/2024-03-11_-_ffg_fahrzeugemfang_drohne_robert_dietzel.mp4",
-        "linkText": "Video anschauen"
+        "text": "<strong>MP4-Video Beispiel</strong> - Fahrzeugempfang des neuen HLF 20 und LF 20 der Freiwilligen Feuerwehr Gr&uuml;nwald am 11. M&auml;rz 2024.",
+        "link": "",
+        "linkText": ""
     },
     "9": { 
         "image": "tag9.jpg", 
-        "text": "<strong>Eure Freiwillige Feuerwehr Grünwald wünscht eine sichere und Fr&ouml;hliche Weihnachtszeit!</strong>", 
+        "text": "<strong>Die Freiwillige Feuerwehr Gr&uuml;nwald w&uuml;nscht eine sichere und Fr&ouml;hliche Weihnachtszeit!</strong>", 
         "link": "https://feuerwehr-gruenwald.de",
         "linkText": "www.feuerwehr-gruenwald.de"
     },
