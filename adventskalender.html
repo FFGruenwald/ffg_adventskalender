@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< Updated upstream
   <title>Feuerwehr Adventskalender</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <link rel="stylesheet" href="css/adventskalender.css">
   
@@ -44,12 +45,61 @@
 
   <!-- Bootstrap 4.6 Modal -->
   <div class="modal fade" id="notTimeModal" tabindex="-1" role="dialog" aria-labelledby="notTimeModalLabel" aria-hidden="true">
+=======
+  <title>Feuerwehr Adventskalender | Freiwillige Feuerwehr</title>
+  <meta name="description" content="Entdecke unseren Feuerwehr Adventskalender und öffne jeden Tag ein neues Türchen mit spannenden Überraschungen.">
+  <meta property="og:title" content="Feuerwehr Adventskalender">
+  <meta property="og:description" content="Öffne jeden Tag ein Türchen und entdecke spannende Inhalte zur Freiwilligen Feuerwehr.">
+  <meta property="og:image" content="bilder/preview.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/adventskalender.css">
+</head>
+<body>
+  <div class="advent-calendar" aria-label="Adventskalender">
+    <!-- Türchen 1 bis 24 -->
+    <div class="day" data-day="17" aria-label="Türchen 17">17</div>
+    <div class="day" data-day="3" aria-label="Türchen 3">3</div>
+    <div class="day" data-day="24" aria-label="Türchen 24">24</div>
+    <div class="day" data-day="8" aria-label="Türchen 8">8</div>
+    <div class="day" data-day="14" aria-label="Türchen 14">14</div>
+
+    <div class="day" data-day="5" aria-label="Türchen 5">5</div>
+    <div class="day" data-day="19" aria-label="Türchen 19">19</div>
+    <div class="day" data-day="1" aria-label="Türchen 1">1</div>
+    <div class="day" data-day="21" aria-label="Türchen 21">21</div>
+    <div class="day" data-day="6" aria-label="Türchen 6">6</div>
+
+    <div class="day" data-day="13" aria-label="Türchen 13">13</div>
+    <div class="day" data-day="10" aria-label="Türchen 10">10</div>
+    <div class="day" data-day="22" aria-label="Türchen 22">22</div>
+    <div class="day" data-day="9" aria-label="Türchen 9">9</div>
+    <div class="day" data-day="4" aria-label="Türchen 4">4</div>
+
+    <div class="day" data-day="16" aria-label="Türchen 16">16</div>
+    <div class="day" data-day="11" aria-label="Türchen 11">11</div>
+    <div class="day" data-day="20" aria-label="Türchen 20">20</div>
+    <div class="day" data-day="18" aria-label="Türchen 18">18</div>
+    <div class="day" data-day="2" aria-label="Türchen 2">2</div>
+
+    <div class="day" data-day="7" aria-label="Türchen 7">7</div>
+    <div class="day" data-day="23" aria-label="Türchen 23">23</div>
+    <div class="day" data-day="12" aria-label="Türchen 12">12</div>
+    <div class="day" data-day="15" aria-label="Türchen 15">15</div>
+  </div>
+
+  <!-- Modal für nicht verfügbare Türchen -->
+  <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" role="dialog" aria-modal="true">
+>>>>>>> Stashed changes
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="notTimeModalLabel">Noch etwas Geduld</h5>
+<<<<<<< Updated upstream
           <!-- Bootstrap 4 verwendet noch data-dismiss statt data-bs-dismiss -->
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+          <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+>>>>>>> Stashed changes
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -60,24 +110,35 @@
     </div>
   </div>
 
+<<<<<<< Updated upstream
   <!-- Bootstrap 4.6 Modal für das angeklickte Bild -->
   <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+=======
+  <!-- Modal für angeklickte Türchen -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" role="dialog" aria-modal="true">
+>>>>>>> Stashed changes
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="imageModalLabel">Adventsbild</h5>
+<<<<<<< Updated upstream
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+=======
+          <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+>>>>>>> Stashed changes
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <img id="modalImage" src="" alt="Adventsbild" class="img-fluid">
-          <div id="modalText"><!-- Der Text wird per JavaScript gesetzt --></div>
-          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display:none;"><!-- Das Button Label wird per JavaScript gesetzt --></a>
+          <div id="modalVideoContainer" style="display: none;" aria-hidden="true"></div>
+          <div id="modalImageContainer" style="display: none;" aria-hidden="true"></div>
+          <div id="modalText"></div>
+          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display: none;"></a>
         </div>
       </div>
     </div>
   </div>
+<<<<<<< Updated upstream
   
   <!-- Bootstrap 4.6 JavaScript -->
   <!-- Zuerst jQuery, dann Popper.js, dann Bootstrap JS -->
@@ -85,5 +146,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha512-hCP3piYGSBPqnXypdKxKPSOzBHF75oU8wQ81a6OiGXHFMeKs9/8ChbgYl7pUvwImXJb03N4bs1o1DzmbokeeFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
   <script src="js/adventskalender.js"></script>
+=======
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="js/adventsKalenderDaten.js" defer></script>
+  <script src="js/adventskalender.js" defer></script>
+>>>>>>> Stashed changes
 </body>
 </html>
