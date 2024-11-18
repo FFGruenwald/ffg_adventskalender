@@ -1,4 +1,5 @@
 const dataObject = {
+    "imageBasePath" : "bilder/", /** wird dem "image" Pfad vorangestellt, außer "image" beginnt mit https oder http */
     "defaultVideoThumbnail": "bilder/videoplayer.png",
     "defaultLinkText": "Weitere Informationen...",
     "backgroundImage": {
@@ -6,42 +7,43 @@ const dataObject = {
         "small":"bilder/hintergrundbild_klein.jpg"
     },
     "texte": {
-        "popupHeader_showPopupForPastDoors_false": "Türchen nicht mehr verfügbar",
-        "popupText_showPopupForPastDoors_false": "Leider bist du zu spät. Dieses Türchen ist nicht mehr verfügbar.",
+        "popupHeader_notTimeModal": "Noch etwas Gedult",
+        "popupHeader_showPopupForPastDoors_false": "T&uuml;rchen nicht mehr verf&uuml;gbar",
+        "popupText_showPopupForPastDoors_false": "Leider bist du zu sp&auml;t. Dieses T&uuml;rchen ist nicht mehr verf&uuml;gbar.",
     },
     "1": {  
         "image": "https://www.feuerwehr-gruenwald.de/media/filer_public/fb/dc/fbdcc11a-3ef5-4d8c-a360-01ab562c0260/2024_08_13_ffg_geraetehaus_front_fahrzeuge.jpg", 
-        "text": "<strong>Die Freiwillige Feuerwehr Gr&uuml;nwald w&uuml;nscht allen eine fröhliche Weihnachtszeit!</strong><br/>PS: Wir feiern 2025 unser 150-j&auml;hriges Vereinsjubil&auml;um.",
+        "text": "<strong>Die Freiwillige Feuerwehr Gr&uuml;nwald w&uuml;nscht allen eine fr&ouml;hliche Weihnachtszeit!</strong><br/>PS: Wir feiern 2025 unser 150-j&auml;hriges Vereinsjubil&auml;um.",
         "link": "https://feuerwehr-gruenwald.de",
         "linkText": "www.feuerwehr-gruenwald.de"
     },
     "2": { 
-        "image": "bilder/tag2.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag2.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "3": { 
-        "image": "bilder/tag3.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag3.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "4": { 
-        "image": "bilder/tag4.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag4.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "5": { 
-        "image": "bilder/tag5.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag5.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "6": { 
-        "image": "bilder/tag6.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag6.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "https://feuerwehr-gruenwald.de",
         "linkText": "www.feuerwehr-gruenwald.de"
     },
@@ -49,7 +51,7 @@ const dataObject = {
         "video": {
             "source": "youtube",
             "url": "IwBiZtfjioU",
-            "thumbnailImage": "bilder/tag7.jpg",
+            "thumbnailImage": "tag7.jpg",
             "controls": true,
             "width": "100%",
             "height": 450
@@ -71,92 +73,92 @@ const dataObject = {
         "linkText": "Video anschauen"
     },
     "9": { 
-        "image": "bilder/tag9.jpg", 
-        "text": "<strong>Eure Freiwillige Feuerwehr Grünwald wünscht eine sichere und fröhliche Weihnachtszeit!</strong>", 
+        "image": "tag9.jpg", 
+        "text": "<strong>Eure Freiwillige Feuerwehr Grünwald wünscht eine sichere und Fr&ouml;hliche Weihnachtszeit!</strong>", 
         "link": "https://feuerwehr-gruenwald.de",
         "linkText": "www.feuerwehr-gruenwald.de"
     },
     "10": { 
-        "image": "bilder/tag10.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag10.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "11": { 
-        "image": "bilder/tag11.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag11.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "12": { 
-        "image": "bilder/tag12.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag12.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "13": { 
-        "image": "bilder/tag13.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag13.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "14": { 
-        "image": "bilder/tag14.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag14.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "15": { 
-        "image": "bilder/tag15.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag15.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "16": { 
-        "image": "bilder/tag16.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag16.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "17": { 
-        "image": "bilder/tag17.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag17.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "18": { 
-        "image": "bilder/tag18.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag18.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "19": { 
-        "image": "bilder/tag19.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag19.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "20": { 
-        "image": "bilder/tag20.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag20.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "21": { 
-        "image": "bilder/tag21.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag21.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "22": { 
-        "image": "bilder/tag22.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag22.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
     "23": { 
-        "image": "bilder/tag23.jpg", 
-        "text": "Fröhliche Weihnachtszeit - von KI erstelltes Bild.", 
+        "image": "tag23.jpg", 
+        "text": "Fr&ouml;hliche Weihnachtszeit - von KI erstelltes Bild.", 
         "link": "",
         "linkText": ""
     },
@@ -170,7 +172,7 @@ const dataObject = {
             "width": "100%",
             "height": 450
         },
-        "text": "Fröhliche Weihnachten, Merry Christmas, Feliz Navidad!",
+        "text": "Fr&ouml;hliche Weihnachten, Merry Christmas, Feliz Navidad!",
         "link": "",
         "linkText": ""
     }

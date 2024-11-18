@@ -1,5 +1,4 @@
-// Simuliert einen bestimmten Tag im Dezember (nur für Testzwecke): Werte zwischen 1 und 31.
-// Ab Wert "25" werden alle Kalendertürchen offen und anklickbar angezeigt.
+// Simuliert einen bestimmten Tag im Dezember (nur für Testzwecke).
 let simulatedDayInDecember = 0;
 
 // Steuert, ob das Popup für vergangene Türchen angezeigt werden soll.
@@ -13,7 +12,12 @@ let showPreviewImagesForPastDoors = true;
 const monthNamesGerman = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const basePath = '';
+    // Initialisierung des basePath mit Prüfung auf Slash am Ende
+    let basePath = dataObject.imageBasePath || '';
+    if (basePath && !basePath.endsWith('/')) {
+        basePath += '/';
+    }
+    // Wenn simulatedDayInDecember oben kommentiert wurde, also //let simulatedDayInDecember = 24; dann setze auf 0.
     if (typeof simulatedDayInDecember === 'undefined') {
         simulatedDayInDecember = 0;
     }
@@ -51,11 +55,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDecember = selectedMonth === 11;
     let activeDay = null;
 
+    function isExternalUrl(url) {
+        return typeof url === 'string' && (url.startsWith('https://') || url.startsWith('http://') || url.startsWith('www.'));
+    }
+    
+
     function getThumbnail(dayInfo) {
         if (dayInfo.video) {
-            return dayInfo.video.thumbnailImage || defaultVideoThumbnail || 'bilder/videoplayer.png';
+            const videoThumbnail = dayInfo.video.thumbnailImage;
+            return isExternalUrl(videoThumbnail)
+                ? videoThumbnail
+                : (videoThumbnail ? `${basePath}${videoThumbnail}` : defaultVideoThumbnail || 'bilder/videoplayer.png');
         }
-        return dayInfo.image ? `${basePath}${dayInfo.image}` : defaultTagImage;
+    
+        const image = dayInfo.image;
+        return isExternalUrl(image) ? image : (image ? `${basePath}${image}` : defaultTagImage);
     }
 
     function setDayBackground(day, dayInfo) {
@@ -63,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let backgroundImage;
 
         if (dayInfo.video) {
-            thumbnail = dayInfo.video.thumbnailImage || defaultVideoThumbnail || 'bilder/videoplayer.png';
+            thumbnail = getThumbnail(dayInfo);
             backgroundImage = `url('${thumbnail}')`;
         } else {
-            thumbnail = dayInfo.image ? `${basePath}${dayInfo.image}` : defaultTagImage;
+            thumbnail = getThumbnail(dayInfo);
             backgroundImage = `url('${thumbnail}'), url('${defaultTagImage}')`;
         }
 
@@ -94,9 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         day.addEventListener('click', () => {
             if (selectedMonth <= 10) {
+                notTimeModalLabel.innerHTML = dataObject.texte?.popupHeader_notTimeModal || "Gedult ist noch gefragt.";
                 notTimeModalBody.innerHTML = `Heute ist der ${currentDate}. ${monthNamesGerman[selectedMonth]} ${currentYear}! Die Türchen lassen sich erst ab dem 1. Dezember öffnen...`;
                 notTimeModal.show();
             } else if (selectedMonth === 11 && currentDate > 31) {
+                notTimeModalLabel.innerHTML = `Uppsi`;
                 notTimeModalBody.innerHTML = `Wusstest du...!? Der Dezember hat nur 31 Tage ;-) Bitte den Wert für <em>simulatedDayInDecember</em> ändern.`;
                 notTimeModal.show();
             } else if (isDecember && dayNumber < currentDate && !showPopupForPastDoors) {
@@ -110,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showModal(dayNumber, dayInfo);
             } else {
                 const daysUntilOpen = dayNumber - currentDate;
+                notTimeModalLabel.innerHTML = dataObject.texte?.popupHeader_notTimeModal || "Gedult ist noch gefragt.";
                 notTimeModalBody.innerHTML = daysUntilOpen === 1
                     ? "Dieses Türchen kannst du erst morgen öffnen!"
                     : `Dieses Türchen kann erst in ${daysUntilOpen} Tagen, am ${dayNumber}. Dezember ${currentYear}, geöffnet werden.`;
@@ -129,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showModal(dayNumber, dayInfo) {
-        modalTitle.textContent = `Adventskalender Türchen ${dayNumber}`;
+        modalTitle.innerHTML = `Adventskalender Türchen ${dayNumber}`;
         modalText.innerHTML = `<p class="popupText">${dayInfo.text || ""}</p>`;
 
         const linkText = dayInfo.linkText || defaultLinkText;
@@ -151,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImageContainer.style.display = 'none';
         } else {
             const thumbnail = getThumbnail(dayInfo);
-            modalImageContainer.innerHTML = `<img src="${thumbnail}" alt="Adventsbild" class="img-fluid" onerror="this.src='${defaultTagImage}'">`;
+            modalImageContainer.innerHTML = `<img src="${thumbnail}" alt="Adventskalenderbild" class="img-fluid" onerror="this.src='${defaultTagImage}'">`;
             modalImageContainer.style.display = 'block';
             modalVideoContainer.style.display = 'none';
         }
