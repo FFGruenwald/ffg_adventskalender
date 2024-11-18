@@ -10,6 +10,9 @@ Ein einfacher Adventskalender für die Webseite der speziell für die Verwendung
 ## Verwendung im LFV-Website-Kit
 Eine detaillierte Anleitung, wie ihr den Kalender beziehungsweise die einzelnen Skripte in eure Webseite integrieren könnt, die auf dem LFV-Website-Kit basiert, findet ihr hier: [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/). Dort sind die Code-Snippets auch schon entsprechend vorbereitet.
 
+## Verwendung als WordPress Plugin
+Den Kalender als WordPress-Plugin findet ihr in diesem Github-Projekt: [ffg_adventskalender_wordpress](https://github.com/mario-fliegner/ffg_adventskalender_wordpress)
+
 ## Verwendung Standalone
 Einfacher geht's *Standalone*: Checkt das Projekt aus und öffnet anschließend die [adventskalender.html](adventskalender.html). Die [adventskalender_konfigurator.html](adventskalender_konfigurator.html) enthält einige zusätzliche JavaScript Methoden und eine UI, mit der sich verschiedene Einstellungen des Kalenders testen lassen. So kann der aktuelle Monat per Checkbox auf *Dezember* geändert werden, damit sich die Änderungen bzw. Anpassungsmöglichkeiten testen lassen.
 

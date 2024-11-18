@@ -1,80 +1,78 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Feuerwehr Adventskalender - Bootstrap 5.3.2</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>Feuerwehr Adventskalender | Freiwillige Feuerwehr</title>
+  <meta name="description" content="Entdecke unseren Feuerwehr Adventskalender und öffne jeden Tag ein neues Türchen mit spannenden Überraschungen.">
+  <meta property="og:title" content="Feuerwehr Adventskalender">
+  <meta property="og:description" content="Öffne jeden Tag ein Türchen und entdecke spannende Inhalte zur Freiwilligen Feuerwehr.">
+  <meta property="og:image" content="bilder/preview.jpg">
+  <link rel="stylesheet" href="bootstrap-5.3.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/adventskalender.css">
-  
-  <script src="js/adventsKalenderDaten.js"></script>
 </head>
 <body>
-  <div class="advent-calendar">
-    <!--  Türchen 1 bis 24 - lassen sich beliebig anders anordnen!
-          Auf Desktopbildschirmen (>992 Pixel) werden pro Zeile 6 Türchen (= 4 Zeilen) dargestellt,
-          auf Mobiltelefonen hingegen nur 3 Türchen pro Zeile -->
-    <div class="day" id="day5">5</div>
-    <div class="day" id="day8">8</div>
-    <div class="day" id="day17">17</div>
-    <div class="day" id="day12">12</div>
-    <div class="day" id="day7">7</div>
-    <div class="day" id="day18">18</div>
-    <div class="day" id="day20">20</div>
-    <div class="day" id="day14">14</div>
-    <div class="day" id="day2">2</div>
-    <div class="day" id="day22">22</div>
-    <div class="day" id="day16">16</div>
-    <div class="day" id="day21">21</div>
-    <div class="day" id="day6">6</div>
-    <div class="day" id="day23">23</div>
-    <div class="day" id="day10">10</div>
-    <div class="day" id="day24">24</div>
-    <div class="day" id="day3">3</div>
-    <div class="day" id="day11">11</div>
-    <div class="day" id="day13">13</div>
-    <div class="day" id="day4">4</div>
-    <div class="day" id="day19">19</div>
-    <div class="day" id="day15">15</div>
-    <div class="day" id="day1">1</div>
-    <div class="day" id="day9">9</div>
+  <div class="advent-calendar" aria-label="Adventskalender">
+    <!-- Alle 24 Türchen des Adventskalenders -->
+    <div class="day" data-day="17" aria-label="Türchen 17">17</div>
+    <div class="day" data-day="3" aria-label="Türchen 3">3</div>
+    <div class="day" data-day="24" aria-label="Türchen 24">24</div>
+    <div class="day" data-day="8" aria-label="Türchen 8">8</div>
+    <div class="day" data-day="14" aria-label="Türchen 14">14</div>
+    <div class="day" data-day="5" aria-label="Türchen 5">5</div>
+    <div class="day" data-day="19" aria-label="Türchen 19">19</div>
+    <div class="day" data-day="1" aria-label="Türchen 1">1</div>
+    <div class="day" data-day="21" aria-label="Türchen 21">21</div>
+    <div class="day" data-day="6" aria-label="Türchen 6">6</div>
+    <div class="day" data-day="13" aria-label="Türchen 13">13</div>
+    <div class="day" data-day="10" aria-label="Türchen 10">10</div>
+    <div class="day" data-day="22" aria-label="Türchen 22">22</div>
+    <div class="day" data-day="9" aria-label="Türchen 9">9</div>
+    <div class="day" data-day="4" aria-label="Türchen 4">4</div>
+    <div class="day" data-day="16" aria-label="Türchen 16">16</div>
+    <div class="day" data-day="11" aria-label="Türchen 11">11</div>
+    <div class="day" data-day="20" aria-label="Türchen 20">20</div>
+    <div class="day" data-day="18" aria-label="Türchen 18">18</div>
+    <div class="day" data-day="2" aria-label="Türchen 2">2</div>
+    <div class="day" data-day="7" aria-label="Türchen 7">7</div>
+    <div class="day" data-day="23" aria-label="Türchen 23">23</div>
+    <div class="day" data-day="12" aria-label="Türchen 12">12</div>
+    <div class="day" data-day="15" aria-label="Türchen 15">15</div>
   </div>
 
-  <!-- Aktualisiertes Bootstrap 5 Modal -->
-  <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" aria-hidden="true">
+  <!-- Modal für nicht verfügbare Türchen -->
+  <div class="modal fade" id="notTimeModal" tabindex="-1" aria-labelledby="notTimeModalLabel" aria-modal="true" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="notTimeModalLabel">Noch etwas Geduld</h5>
-          <!-- Bootstrap 4 verwendet noch data-dismiss statt data-bs-dismiss -->
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
         </div>
-        <div class="modal-body" id="notTimeModalBody">
-          <!-- Der Text wird per JavaScript gesetzt -->
+        <div class="modal-body" id="notTimeModalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal für angeklickte Türchen -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Adventsbild</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalVideoContainer" style="display: none;"></div>
+          <div id="modalImageContainer" style="display: none;"></div>
+          <div id="modalText"></div>
+          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display: none;"></a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Aktualisiertes Bootstrap 5 Modal für das angeklickte Bild -->
-  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="imageModalLabel">Adventsbild</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img id="modalImage" src="" alt="Adventsbild" class="img-fluid">
-          <div id="modalText"><!-- Der Text wird per JavaScript gesetzt --></div>
-          <a id="modalLink" href="#" class="btn btn-primary" role="button" style="display:none;"><!-- Das Button Label wird per JavaScript gesetzt --></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Bootstrap 5.3.2 JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>  <script src="js/adventskalender.js"></script>
+  <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="js/adventsKalenderDaten.js" defer></script>
+  <script src="js/adventskalender.js" defer></script>
 </body>
 </html>
