@@ -1,6 +1,8 @@
 // Simuliert einen bestimmten Tag im Dezember (nur für Testzwecke).
 // VOR PRODUKTIVSETZUNG SICHERSTELLEN, dass die nächste Zeile entweder 
-// kommentiert ist oder der Wert auf 0 setzen.
+// kommentiert ist oder der Wert auf 0 setzen. 
+// Mögliche Werte: 0 (=normales Kalenderverhalten), oder 1..24 um einen 
+// Tag im Dezember zu simulieren, damit der Kalender getesetet werden kann.
 let simulatedDayInDecember = 0;
 
 // Steuert, ob das Popup für vergangene Türchen angezeigt werden soll.
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Setzt das Hintergrundbild für den Adventskalender basierend auf der Fensterbreite.
+     * TODO: Über Bootstrap Klassen abdecken
      */
     function setCalendarBackground() {
         const windowWidth = window.innerWidth;
@@ -96,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const videoThumbnail = dayInfo.video.thumbnailImage;
             return isExternalUrl(videoThumbnail)
                 ? videoThumbnail
-                : (videoThumbnail ? `${basePath}${videoThumbnail}` : defaultVideoThumbnail || 'bilder/videoplayer.png');
+                : (videoThumbnail ? `${basePath}${videoThumbnail}` : defaultVideoThumbnail || 'videoplayer.png');
         }
 
         const image = dayInfo.image;
