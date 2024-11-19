@@ -148,21 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function showModal(dayNumber, dayInfo) {
         modalTitle.innerHTML = `Adventskalender Türchen ${dayNumber}`;
         modalText.innerHTML = `<p class="popupText">${dayInfo.text || ""}</p>`;
-
+    
         const linkText = dayInfo.linkText || defaultLinkText;
         modalLink.href = dayInfo.link || "#";
         modalLink.innerText = linkText;
         modalLink.style.display = dayInfo.link ? 'inline-block' : 'none';
-
+    
         modalImageContainer.innerHTML = '';
         modalVideoContainer.innerHTML = '';
-
+    
         if (dayInfo.video) {
             const { source, url, controls, loop, width = 560, height = 315 } = dayInfo.video;
             if (source === "youtube") {
-                modalVideoContainer.innerHTML = `<iframe width="${width}" height="${height}" src="https://www.youtube.com/embed/${url}?enablejsapi=1&controls=${controls ? 1 : 0}" allowfullscreen></iframe>`;
+                modalVideoContainer.innerHTML = `<iframe id="youtubeFrame" width="${width}" height="${height}" src="https://www.youtube.com/embed/${url}?enablejsapi=1&controls=${controls ? 1 : 0}" allowfullscreen></iframe>`;
             } else if (source === "mp4" || source === "mov") {
-                modalVideoContainer.innerHTML = `<video width="${width}" height="${height}" class="img-fluid" ${controls ? "controls" : ""} ${loop ? "loop" : ""}><source src="${url}" type="video/${source}"></video>`;
+                modalVideoContainer.innerHTML = `<video id="html5Video" width="${width}" height="${height}" class="img-fluid" ${controls ? "controls" : ""} ${loop ? "loop" : ""}><source src="${url}" type="video/${source}"></video>`;
             }
             modalVideoContainer.style.display = 'block';
             modalImageContainer.style.display = 'none';
@@ -172,8 +172,24 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImageContainer.style.display = 'block';
             modalVideoContainer.style.display = 'none';
         }
-
+    
         const imageModal = bootstrap.Modal.getOrCreateInstance(imageModalElement);
         imageModal.show();
+    
+        // Event listener for modal close to stop video playback
+        imageModalElement.addEventListener('hidden.bs.modal', stopVideoPlayback);
     }
+    
+    function stopVideoPlayback() {
+        const youtubeFrame = document.getElementById('youtubeFrame');
+        const html5Video = document.getElementById('html5Video');
+    
+        if (youtubeFrame) {
+            youtubeFrame.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+        }
+        if (html5Video) {
+            html5Video.pause();
+        }
+    }
+    
 });
