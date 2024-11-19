@@ -1,26 +1,65 @@
 # Feuerwehr Adventskalender
-Ein einfacher Adventskalender für die Webseite der speziell für die Verwendung im CMS des LFV-Website-Kits 2.0 entwickelt wurde, das auf Django CMS basiert. Er nutzt Bootstrap 4.6.0, entsprechend der Version, die im LFV-Website-Kit verwendet wird. Die Anzeige ist voll responsiv, d.h. vor allem auch für kleinere Endgeäte optimiert.
+Ein einfacher Adventskalender für die Webseite der speziell für die Verwendung im CMS des LFV-Website-Kits 2.0 entwickelt wurde, das auf Django CMS basiert. Er nutzt Bootstrap 4.6.0, entsprechend der Version, die im LFV-Website-Kit verwendet wird. Die Anzeige ist responsiv, d.h. auch für kleinere Endgeäte optimiert.
 
-* Türchen lassen sich beliebig anordnen (einfach "umkopieren")
-* Bilder lassen sich in modalem Popup in Originalgröße öffnen
-* Zoom Effekt der Türchen beim darüberfahren mit der Maus
-* Klickt man auf eine Tür, die noch nicht geöffnet werden kann, erscheint ein entsprechender Hinweis
-* Die Tür des aktuellen Tages muss angeklickt werden, damit sich geöffnet wird
+## Features
+* Anzeige von Bild oder Video (`.mp4`, `.mov` bzw. YouTube-Videos)
+* Beschreibung unter jedem Bild oder Video möglich
+* Optionaler Link zu externer Seite möglich (als "Weitere Informationen")
+* Flexible Türchenanordnung
+* Interaktive Türchen - Status basierend auf aktuellem Datum (offen, geschlossen oder aktiv)
+* Barrierefrei (`aria`-Attribute zur Unterstützung von Screenreadern)
+* Responsive Design
+* Anpassungen erfordern keine tiefen Programmierkenntnisse
+* Testmodus um die Türchen für jeden beliebigen Tag im Dezember zu simulieren
+
 
 ## Verwendung im LFV-Website-Kit
-Eine detaillierte Anleitung, wie ihr den Kalender beziehungsweise die einzelnen Skripte in eure Webseite integrieren könnt, die auf dem LFV-Website-Kit basiert, findet ihr hier: [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/). Dort sind die Code-Snippets auch schon entsprechend vorbereitet.
+Eine detaillierte Anleitung, wie der Kalender auf einer Webseite des LFV-Website-Kit integriert werden kann, findet ihr hier: [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/). Dort sind die Code-Snippets schon entsprechend vorbereitet.
 
-## Verwendung als WordPress Plugin
-Den Kalender als WordPress-Plugin findet ihr in diesem Github-Projekt: [ffg_adventskalender_wordpress](https://github.com/mario-fliegner/ffg_adventskalender_wordpress)
+## Download und Installation
+Um den Kalender für euch zu nutzen geht ihr wie folgt vor:
+* Github-Projekt auschecken oder das letzte Release herunterladen und entpacken
 
-## Verwendung Standalone
-Einfacher geht's *Standalone*: Checkt das Projekt aus und öffnet anschließend die [adventskalender.html](adventskalender.html). Die [adventskalender_konfigurator.html](adventskalender_konfigurator.html) enthält einige zusätzliche JavaScript Methoden und eine UI, mit der sich verschiedene Einstellungen des Kalenders testen lassen. So kann der aktuelle Monat per Checkbox auf *Dezember* geändert werden, damit sich die Änderungen bzw. Anpassungsmöglichkeiten testen lassen.
+Öffnet die Datei [adventskalender.html](adventskalender.html) mit einem Doppelklick in einem Browser und ihr seht den Kalender. Diesen könnt ihr nun anpassen. 
 
 ## Kalender anpassen
-Die Hauptarbeit steckt in der [adventskalenderdaten.js](https://github.com/mario-fliegner/ffg_adventskalender/blob/dd7fb9f83bbc0e2430a739008c56705dc0cc3a34/js/adventskalenderdaten.js).
-Diese enthält zu jedem Tag im Adventskalender die ensprechenden Angaben zum Bild:
+Um den Kalender anzupassen und die einzelnen Türchen nach euren Wünschen zu füllen, öffnet die Datei [adventskalenderdaten.js](js/adventskalenderdaten.js) im Unterverzeichnis `/js` mit einem Texteditor (bspw. Notepad++). Dort müssen die Änderungen für die einzelnen Türchen vorgenommen werden. Zusätzlich lassen sich dort bspw. auch die Hintergrundbilder definieren. 
 
-### Aufbau Array
+### Aufbau der `adventskalenderdaten.js`
+Die Beschreibung der einzelnen Felder in der Datei:
+
+#### Grundlegende Einstellungen
+Die Beschreibung der Einstellungen, die im oberen Bereich der Datei vorgenommen werden können:
+
+```
+    "imageBasePath" : "bilder/",
+    "defaultVideoThumbnail": "bilder/videoplayer.png",
+    "defaultLinkText": "Weitere Informationen...",
+    "backgroundImage": {
+        "large": "bilder/hintergrundbild_gross.jpg",
+        "small":"bilder/hintergrundbild_klein.jpg"
+    },
+    "texte": {
+        "popupHeader_notTimeModal": "Noch etwas Geduld",
+        "popupHeader_showPopupForPastDoors_false": "T&uuml;rchen nicht mehr verf&uuml;gbar",
+        "popupText_showPopupForPastDoors_false": "Leider bist du zu sp&auml;t. Dieses T&uuml;rchen ist nicht mehr verf&uuml;gbar.",
+    },
+```
+
+| Schlüssel / Key  | Beschreibung  | Beispiel  |
+|---|---|---|
+| `imageBasePath`  | Für lokal gespeicherte Bilder kann hier ein Basispfad angegeben werden, der jedem lokal angegebenen Bild in den Türchen vorangestellt wird. Hat man 24 Bilder im Unterverzeichnis `images/weihnachten/kalender/2024`, müsste man bei allen 24 Bildern diesen Pfad mit angeben. Setzt man ihn über diesen Parameter, muss man bei den Türchen nur den Namen der jeweiligen Bilder in dem Ordner angeben. | `bilder/`|
+| `popupHeader_notTimeModal`  | Überschrift des Popups, wenn das angeklickte Türchen noch nicht geöffnet werden darf.  | `bilder/videoplayer.png`|
+| `defaultVideoThumbnail`  | Für mit Videos hinterlegte Türchen kann jeweils ein Vorschaubild mitgegeben werden. Wird keins angegeben, erfolgt die Anzeige dieses Bildes.  | `bilder/videoplayer.png`|
+| `defaultLinkText`  | Wenn zu einem Türchen ein Link angezeigt werden soll, kann ein Text für den Link mitgegeben werden. Wird keiner angegeben, wird standardmäßig dieser Text für den Button verwendet.  | `Weitere Informationen`|
+| `backgroundImage`  | Definiert die Hintergrundbilder des Kalenders. Für kleinere Mobile Endgeräte (`small`) kann ein anderes Bild verwendet werden. | `bilder/hintergrundbild_gross.jpg` oder `https://meine-website.de/images/kalender-hintergrund.jpg`|
+| `popupHeader_showPopupForPastDoors_false`  | Überschrift im Popup, wenn vergangene Türchen nicht mehr geöffnet werden dürfen.  | `Türchen nicht mehr verfügbar`|
+| `popupText_showPopupForPastDoors_false`  | Text der im Popup angezeigt wird, wenn vergangene Türchen nicht mehr geöffnet werden dürfen.  | `Türchen nicht mehr verfügbar`|
+
+!!! Ab hier TBD!!!
+
+#### Einstellungen zu den einzelnen Türchen
+
 ```
     "1": { 
         "image": "/bilder/bild_tuer_1.jpg", 
