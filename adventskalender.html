@@ -12,35 +12,35 @@
   <link rel="stylesheet" href="css/adventskalender.css">
 </head>
 <body>
-  <div class="advent-calendar" aria-label="Adventskalender">
+  <div class="advent-calendar">
     <!-- Alle 24 Türchen des Adventskalenders -->
-    <div class="day" data-day="17" aria-label="Türchen 17">17</div>
-    <div class="day" data-day="3" aria-label="Türchen 3">3</div>
-    <div class="day" data-day="16" aria-label="Türchen 16">16</div>
-    <div class="day" data-day="8" aria-label="Türchen 8">8</div>
-    <div class="day" data-day="14" aria-label="Türchen 14">14</div>
-    <div class="day" data-day="5" aria-label="Türchen 5">5</div>
-
-    <div class="day" data-day="19" aria-label="Türchen 19">19</div>
-    <div class="day" data-day="1" aria-label="Türchen 1">1</div>
-    <div class="day" data-day="21" aria-label="Türchen 21">21</div>
-    <div class="day" data-day="6" aria-label="Türchen 6">6</div>
-    <div class="day" data-day="13" aria-label="Türchen 13">13</div>
-    <div class="day" data-day="10" aria-label="Türchen 10">10</div>
-
-    <div class="day" data-day="22" aria-label="Türchen 22">22</div>
-    <div class="day" data-day="9" aria-label="Türchen 9">9</div>
-    <div class="day" data-day="4" aria-label="Türchen 4">4</div>
-    <div class="day" data-day="24" aria-label="Türchen 24">24</div>
-    <div class="day" data-day="11" aria-label="Türchen 11">11</div>
-    <div class="day" data-day="20" aria-label="Türchen 20">20</div>
-
-    <div class="day" data-day="18" aria-label="Türchen 18">18</div>
-    <div class="day" data-day="2" aria-label="Türchen 2">2</div>
-    <div class="day" data-day="7" aria-label="Türchen 7">7</div>
-    <div class="day" data-day="23" aria-label="Türchen 23">23</div>
-    <div class="day" data-day="12" aria-label="Türchen 12">12</div>
-    <div class="day" data-day="15" aria-label="Türchen 15">15</div>
+    <div class="day" data-day="17" id="day-17" role="button" aria-labelledby="day-17">17</div>
+    <div class="day" data-day="3" id="day-3" role="button" aria-labelledby="day-3">3</div>
+    <div class="day" data-day="16" id="day-16" role="button" aria-labelledby="day-16">16</div>
+    <div class="day" data-day="8" id="day-8" role="button" aria-labelledby="day-8">8</div>
+    <div class="day" data-day="14" id="day-14" role="button" aria-labelledby="day-14">14</div>
+    <div class="day" data-day="5" id="day-5" role="button" aria-labelledby="day-5">5</div>
+    
+    <div class="day" data-day="19" id="day-19" role="button" aria-labelledby="day-19">19</div>
+    <div class="day" data-day="1" id="day-1" role="button" aria-labelledby="day-1">1</div>
+    <div class="day" data-day="21" id="day-21" role="button" aria-labelledby="day-21">21</div>
+    <div class="day" data-day="6" id="day-6" role="button" aria-labelledby="day-6">6</div>
+    <div class="day" data-day="13" id="day-13" role="button" aria-labelledby="day-13">13</div>
+    <div class="day" data-day="10" id="day-10" role="button" aria-labelledby="day-10">10</div>
+    
+    <div class="day" data-day="22" id="day-22" role="button" aria-labelledby="day-22">22</div>
+    <div class="day" data-day="9" id="day-9" role="button" aria-labelledby="day-9">9</div>
+    <div class="day" data-day="4" id="day-4" role="button" aria-labelledby="day-4">4</div>
+    <div class="day" data-day="24" id="day-24" role="button" aria-labelledby="day-24">24</div>
+    <div class="day" data-day="11" id="day-11" role="button" aria-labelledby="day-11">11</div>
+    <div class="day" data-day="20" id="day-20" role="button" aria-labelledby="day-20">20</div>
+    
+    <div class="day" data-day="18" id="day-18" role="button" aria-labelledby="day-18">18</div>
+    <div class="day" data-day="2" id="day-2" role="button" aria-labelledby="day-2">2</div>
+    <div class="day" data-day="7" id="day-7" role="button" aria-labelledby="day-7">7</div>
+    <div class="day" data-day="23" id="day-23" role="button" aria-labelledby="day-23">23</div>
+    <div class="day" data-day="12" id="day-12" role="button" aria-labelledby="day-12">12</div>
+    <div class="day" data-day="15" id="day-15" role="button" aria-labelledby="day-15">15</div>
   </div>
 
   <!-- Modal für nicht verfügbare Türchen -->
@@ -48,7 +48,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="notTimeModalLabel"><!-- Der Text wird per JavaScript gesetzt --></h5>
+          <h5 class="modal-title" id="notTimeModalLabel">Kann noch nicht ge&ouml;ffnet werden<!-- Der Text wird per JavaScript gesetzt --></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
         </div>
         <div class="modal-body" id="notTimeModalBody">
