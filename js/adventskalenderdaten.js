@@ -7,7 +7,7 @@ const dataObject = {
         "small":"bilder/hintergrundbild_klein.jpg"
     },
     "texte": {
-        "popupHeader_notTimeModal": "Noch etwas Gedult",
+        "popupHeader_notTimeModal": "Noch etwas Geduld",
         "popupHeader_showPopupForPastDoors_false": "T&uuml;rchen nicht mehr verf&uuml;gbar",
         "popupText_showPopupForPastDoors_false": "Leider bist du zu sp&auml;t. Dieses T&uuml;rchen ist nicht mehr verf&uuml;gbar.",
     },
