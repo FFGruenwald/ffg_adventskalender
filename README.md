@@ -2,6 +2,8 @@
 Ein einfacher Adventskalender für eure (Feuerwehr-)Webseiten. Urspünglich entwickelt und optimiert für die Verwendung im [LFV-Website-Kits 2.0](https://feuerwehren.bayern/). Der Code im Repo verwendet aber bereits eine aktuelle Bootstrap-Version für die Anzeige. Für die Einbindung im LFV-Website-Kit folgt bitte dieser Anleitung: 
 *  [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/)
 
+![image](https://github.com/user-attachments/assets/8f019592-12ab-4b64-a0f4-c8c592008748)
+
 ## Features
 * Anzeige von Bild oder Video (`.mp4` oder YouTube-Videos)
 * Optionale Beschreibung unter jedem Bild oder Video möglich
@@ -112,7 +114,7 @@ Beispiel für den 2. Dezember. Das Video wird in einem Unterobjekt `video` angeg
 | `link`  | Eine URL zu weiteren Informationen. Ist ein `link` angegeben, wird automatisch ein Button unter dem `text` angezeigt, der die URL in einem neuen Fenster öffnet. |
 | `linkText`  | Das Text (Label) für den Button.<br/>Falls ein `link` angegeben wurde, aber kein `linkText` vorhanden ist, wird der Standardtext aus dem Parameter [`defaultLinkText`](https://github.com/FFGruenwald/ffg_adventskalender/blob/239e2bd9cca224ec264c87a636a040a2ec419407/js/adventskalenderdaten.js#L4) für den Button verwendet. |
 ## Weitere Anpassungsmöglichkeiten
-In der Datei [adventskalender.js](https://github.com/mario-fliegner/ffg_adventskalender/blob/dd7fb9f83bbc0e2430a739008c56705dc0cc3a34/js/adventskalender.js#L30) gibt es noch die folgenden Anpassungsmöglichkeiten, um das Aussehen des Kalenders zu steuern:
+In der Datei [adventskalender.js](https://github.com/mario-fliegner/ffg_adventskalender/blob/dd7fb9f83bbc0e2430a739008c56705dc0cc3a34/js/adventskalender.js#L30) gibt es noch die folgenden Anpassungsmöglichkeiten, um das Verhalten des Kalenders zu steuern:
 
 | Parameter  | Wert |Beschreibung  |
 |---|---|---|
@@ -121,10 +123,5 @@ In der Datei [adventskalender.js](https://github.com/mario-fliegner/ffg_adventsk
 | `showPreviewImagesForPastDoors`  | `true` oder `false` | Steuert, ob für vergangenen Tage die Bilder als Vorschaubilder (40% Transparenz) hinter den Kalendertürchen angezeigt werden sollen. |
 
 ## Usability
-Anzeige des Kalenders mit Defaulteinstellungen auf Desktopbildschirmen: 
-![image](https://github.com/mario-fliegner/ffg_adventskalender/assets/58735999/969c98a9-4d92-4e86-8ed2-53cc5a0192de)
-
-Anzeige des Kalenders mit Defaulteinstellungen auf mobilen Endgeräten:
-![image](https://github.com/mario-fliegner/ffg_adventskalender/assets/58735999/c6a07d07-eadf-4556-af22-bdb7526855f7)
-
-
+Verschiedene Ansichten:
+![image](https://github.com/user-attachments/assets/7f24611e-12c1-4467-95cc-3b94b53e42b2)
