@@ -1,17 +1,17 @@
 # Feuerwehr Adventskalender
-Ein einfacher Adventskalender für die Webseite der speziell für die Verwendung im CMS des [LFV-Website-Kits 2.0](https://feuerwehren.bayern/) entwickelt wurde, das auf Django CMS basiert. Die Anzeige ist responsiv, d.h. auch für kleinere Endgeäte optimiert.
+Ein einfacher Adventskalender für eure (Feuerwehr-)Webseiten. Urspünglich entwickelt und optimiert für die Verwendung im [LFV-Website-Kits 2.0](https://feuerwehren.bayern/). Der Code im Repo verwendet aber bereits eine aktuelle Bootstrap-Version für die Anzeige. Für die Einbindung im LFV-Website-Kit folgt bitte dieser Anleitung: 
+*  [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/)
 
 ## Features
-* Anzeige von Bild oder Video (`.mp4`, `.mov` bzw. YouTube-Videos)
-* Beschreibung unter jedem Bild oder Video möglich
-* Optionaler Link zu externer Seite möglich (als "Weitere Informationen")
+* Anzeige von Bild oder Video (`.mp4` oder YouTube-Videos)
+* Optionale Beschreibung unter jedem Bild oder Video möglich
+* Optionaler Link unter Beschreibung zu beliebiger Webseite möglich
 * Flexible Türchenanordnung
 * Interaktive Türchen - Status basierend auf aktuellem Datum (offen, geschlossen oder aktiv)
 * Barrierefrei (`aria`-Attribute zur Unterstützung von Screenreadern)
 * Responsive Design
 * Anpassungen erfordern keine tiefen Programmierkenntnisse
 * Testmodus um die Türchen für jeden beliebigen Tag im Dezember zu simulieren
-
 
 ## Verwendung im LFV-Website-Kit
 Eine detaillierte Anleitung, wie der Kalender auf einer Webseite des LFV-Website-Kit integriert werden kann, findet ihr hier: [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/). Dort sind die Code-Snippets schon entsprechend vorbereitet und können 1:1 kopiert und verwendet werden.
