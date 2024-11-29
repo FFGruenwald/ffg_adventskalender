@@ -2,7 +2,7 @@
 Ein einfacher Adventskalender für eure (Feuerwehr-)Webseiten. Urspünglich entwickelt und optimiert für die Verwendung im [LFV-Website-Kits 2.0](https://feuerwehren.bayern/). Der Code im Repo verwendet aber bereits eine aktuelle Bootstrap-Version für die Anzeige. Für die Einbindung im LFV-Website-Kit folgt bitte dieser Anleitung: 
 *  [https://www.feuerwehr-gruenwald.de/adventskalender/](https://www.feuerwehr-gruenwald.de/adventskalender/)
 
-![image](https://github.com/user-attachments/assets/8f019592-12ab-4b64-a0f4-c8c592008748)
+![image](https://github.com/user-attachments/assets/74fefeec-af5a-41cc-8f1d-518e115cd0ba)
 
 ## Features
 * Anzeige von Bild oder Video (`.mp4` oder YouTube-Videos)
